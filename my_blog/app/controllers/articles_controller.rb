@@ -22,6 +22,13 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id]) #tem que passar o id do artigo que quer mostrar
 	end
 
+	def destroy
+		@article = Article.find(params[:id])
+		@article.destroy
+		flash[:notice] = "Artigo destruido"
+		redirect_to articles_path
+	end
+
 	def edit
 		@article = Article.find(params[:id])
 	end
